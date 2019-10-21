@@ -12,53 +12,65 @@
         $com = htmlspecialchars(trim($_POST['com']));
         $id_secretaire = htmlspecialchars(trim($_POST['id_secretaire']));
         $id_medecin = htmlspecialchars(trim($_POST['id_medecin']));
-        
-         $date_rv->format("Y-m-d");     
+        $date_rv  =  date ( ' Y/m/d ' );
+       //$bday  =  date ( ' Ymd ' );
+         //$date_rv->format("Y-m-d");     
                /* header('location:0.php');*/
         if (preg_match("/^[a-zA-Z\S ]+$/", $nom))
         {
             if (preg_match("/^[a-zA-Z\S ]+$/", $prenom))
             {
-                if (preg_match("#^7[0|5|6|7|8][0-9]{7}#",$tel))
-                {
-                    
-                    //if ( $date_rv > strtotime( 'now' ) )
-                   // {
+               /* if (strptime($bday, "%d/%m/%Y"))
+			    {*/
 
-                        if /*(*/($heure_rv >="08:00" || $heure_rv<="13:00") //OR ($heure_rv >= "15:00" || $heure_rv<="17:00"))
-                        {
-
+			    
+                    if (preg_match("#^7[0|5|6|7|8][0-9]{7}#",$tel))
+                    {
                         
-                            if (!empty($bday) AND !empty($tel) AND !empty($date_rv) AND !empty($heure_rv) AND !empty($com) AND !empty($id_secretaire) AND !empty($id_medecin))
+                        /*if (strptime($date_rv, "%d/%m/%Y"))
+			            {*/
+
+			
+                            if /*(*/($heure_rv >="08:00" || $heure_rv<="13:00") //OR ($heure_rv >= "15:00" || $heure_rv<="17:00"))
                             {
 
-                                // appel de la classe Database pour se connecter à notre base de donnée
-                                require 'pdo.php';
-                                $db= new Database('hopital');
-                                $req='INSERT INTO `rendez-vous`(`nom`, `prenom`, `date_de_naissance`, `telephone`, `date`,`heure`, `commentaire`,`id_secretaire`, `id_medecin`) VALUES (?,?,?,?,?,?,?,?,?)';
-                                $inser=$db->getPDO()->prepare($req);
-                                $inser->execute(array($nom,$prenom,$bday,$tel,$date_rv,$heure_rv,$com,$id_secretaire,$id_medecin));
-                                
+                            
+                                if (!empty($com) AND !empty($id_secretaire) AND !empty($id_medecin))
+                                {
+
+                                    // appel de la classe Database pour se connecter à notre base de donnée
+                                    require 'pdo.php';
+                                    $db= new Database('hopital');
+                                    $req='INSERT INTO `rendez-vous`(`nom`, `prenom`, `date_de_naissance`, `telephone`, `date`,`heure`, `commentaire`,`id_secretaire`, `id_medecin`) VALUES (?,?,?,?,?,?,?,?,?)';
+                                    $inser=$db->getPDO()->prepare($req);
+                                    $inser->execute(array($nom,$prenom,$bday,$tel,$date_rv,$heure_rv,$com,$id_secretaire,$id_medecin));
+                                    
+                                }
+                                else
+                                {
+                                    echo "veuillez remplir tous les champs!";
+                                }
                             }
-                            else
+                            else 
                             {
-                                echo "veuillez remplir tous les champs!";
+                                echo 'veuillez mettre une heure comprise entre 08h et 13h ou entre 15h et 17h!';
                             }
-                        }
-                        else 
+                        /*} 
+                        else
                         {
-                            echo 'veuillez mettre une heure comprise entre 08h et 13h ou entre 15h et 17h!';
-                        }
-                    /*} 
+                            echo 'veuillez mettre une date valide!';
+                        }*/
+                    }
+                
                     else
                     {
-                        echo 'veuillez mettre une date valide!';
-                    }*/
-                }
+                        echo " veuillez entrer un numéro de telephone valide !";
+                    } 
+                /*}
                 else
                 {
-                    echo " veuillez entrer un numéro de telephone valide !";
-                }   
+                    echo "veuillez mettre une date au bon format";
+                }*/
             }
             else
             {
@@ -67,7 +79,7 @@
         }
         else
         {
-            echo "le prénom ne doit contenir que des lettres!";
+            echo "le nom ne doit contenir que des lettres!";
         }
                 
 			
@@ -120,13 +132,13 @@
             <tr><td><label for="prenom">Prénom<input type="Text" name="prenom"></label></br></br></br></td></tr>
         
             
-            <tr><td><label for="bday">Date de Naissance<input type="date" name="bday"></label></br></br></br></td></tr>
+            <tr><td><label for="bday">Date de Naissance<input type="text" name="bday"></label></br></br></br></td></tr>
             
             
             
             <tr><td><label for="tel">Téléphone<input type="text" name="tel" ></label></br></br></br></td><tr>
          
-            <tr><td><label for="date_rv">Date du Rendez-Vous<input type="date" name="date_rv" ></label></br></br></br></td><tr>
+            <tr><td><label for="date_rv">Date du Rendez-Vous<input type="text" name="date_rv" ></label></br></br></br></td><tr>
             
             <tr><td><label for="heure_rv">Heure du Rendez-Vous<input type="time" name="heure_rv" ></label></br></br></br></td><tr>
             <tr><td><label for="com">commentaire<input type="text" name="com" ></label></br></br></br></td><tr>
