@@ -79,7 +79,8 @@
                 }
             ?>
             
-    </div>
+    </div></br>
+	<a href="admin.php">Retour</a>
 	
 	<h1>Nabil Choucair</h1>
 	<h2>Ajout</h2>
