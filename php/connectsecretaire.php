@@ -16,7 +16,8 @@
 		</ul>
 	</nav> -->
 	<h1>Espace Secrétaire</h1>
-	<p>La plateforme Nabil houcair est une plateforme qui permet la gestion de la prise de rendez vous d'un hopital</p>
+    <p>La plateforme Nabil houcair est une plateforme qui permet la gestion de la prise de rendez vous d'un hopital</p>
+    <p><a href="hopital.php">Retour</a></p>
 	<div id="container">
             <!-- zone de connexion -->
             

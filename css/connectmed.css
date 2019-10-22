@@ -6,6 +6,15 @@ body{
     margin:0 auto;
     margin-top:10%;
 }
+a
+{
+    color: black;
+}
+p:hover a
+{
+    background-color: black;
+    color:#0064b7;
+}
 /* Bordered form */
 form {
     width:100%;

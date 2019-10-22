@@ -10,9 +10,9 @@
 		<ul class="aligne">
 			
 			<li class="decale"><a href="hopital.php">ACCUEIL</a></li>
-			<li class="decale"><a href="">Administrateur</a></li>
-			<li class="decale"><a href="">Secrétaire</a></li>
-			<li class="decale"><a href="">MÉDECIN</a></li>
+			<li class="decale"><a href="connectadmin.php">Administrateur</a></li>
+			<li class="decale"><a href="connetsecretaire.php">Secrétaire</a></li>
+			<li class="decale"><a href="connectmedecin.php">MÉDECIN</a></li>
 		</ul>
 	</nav>
 	<h1>Nabil Choucair</h1>
